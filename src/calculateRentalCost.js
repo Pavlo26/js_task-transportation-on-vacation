@@ -4,22 +4,26 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const prise = days * 40;
+  const price = days * 40;
   const SHORT__DAY = 3;
   const LONG__DAY = 7;
   const SHORT__DAY_DISCONT = 20;
   const LONG__DAY_DISCONT = 50;
 
+  if (days <= 0) {
+    return 0;
+  }
+
   if (days >= LONG__DAY) {
-    return prise - LONG__DAY_DISCONT;
+    return price - LONG__DAY_DISCONT;
   }
 
   if (days >= SHORT__DAY) {
-    return prise - SHORT__DAY_DISCONT;
+    return price - SHORT__DAY_DISCONT;
   }
 
   if (days < SHORT__DAY) {
-    return prise;
+    return price;
   }
 }
 
